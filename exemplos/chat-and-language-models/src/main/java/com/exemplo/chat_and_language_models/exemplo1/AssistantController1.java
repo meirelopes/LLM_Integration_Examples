@@ -1,18 +1,18 @@
 package com.exemplo.chat_and_language_models.exemplo1;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-class AssistantController {
+@AllArgsConstructor
+public class AssistantController1 {
+    private final Assistant1 assistant1;
 
-    @Autowired
-    Assistant assistant;
-
-    @PostMapping("/chat")
+    @PostMapping("/chat1")
     public String chat(@RequestBody String message) {
-        return assistant.chat(message);
+
+        return assistant1.chatModel.generate(message);
     }
 }
